@@ -1,5 +1,8 @@
 .LandingPage {
   height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +31,7 @@
 }
 
 .LandingPage__h2 {
-  position: relative;
+  position: fixed;
   top: 35vh;
   color: rgba(14, 0, 25, 0.8);
   font-weight: 500;

@@ -11,7 +11,9 @@ const LandingPage = props => {
         alt="Spectrum Logo" />
       <div className="LandingPage__div" />
       <h2 className="LandingPage__h2">{props.text}</h2>
-      <button className="LandingPage__button">
+      <button 
+        className="LandingPage__button"
+        onMouseUp={() => props.setPageChanging(true)}>
         <span className="LandingPage__span">{props.btnValue}</span>
       </button>
     </div>
