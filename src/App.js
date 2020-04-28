@@ -5,11 +5,12 @@ import LandingPage from './components/LandingPage/LandingPage';
 import './App.css';
 
 function App() {
-  const text = 'Restaurant App';
+  const title = 'Restaurant App';
+  const text = 'Your table is ready'
 
   return (
     <div className="App">
-      <LandingPage text={text} />
+      <LandingPage title={title} text={text} />
     </div>
   );
 }
