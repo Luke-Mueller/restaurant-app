@@ -7,7 +7,7 @@ const LandingPage = props => {
     <div className="LandingPage">
       <img
         className="LandingPage__img"
-        src="/images/logo.png"
+        src="/assets/images/logo.png"
         alt="Spectrum Logo" />
       <div className="LandingPage__div" />
       <p className="LandingPage__p">{props.text}</p>
