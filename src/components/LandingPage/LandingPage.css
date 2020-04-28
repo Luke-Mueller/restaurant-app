@@ -32,3 +32,34 @@
   z-index: 100;
   animation: 5s 1 slide-from-bottom forwards;
 }
+
+@keyframes slide-in-from-top {
+  from {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-from-upper-right {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@keyframes slide-from-bottom {
+  from {
+    transform: translateY(10vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
