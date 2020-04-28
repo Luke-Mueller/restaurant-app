@@ -8,7 +8,7 @@
 .LandingPage__img {
   height: 2rem;
   position: fixed;
-  top: 12.5vh;
+  top: 5vh;
   z-index: 100;
   animation: 1s 1 slide-in-from-top; 
 }
@@ -24,11 +24,21 @@
 
 .LandingPage__h1 {
   position: relative;
-  top: 17.5vh;
-  color: white;
+  top: 20vh;
+  color: #a5c5f5;
   font-weight: 300;
   letter-spacing: 1.5rem;
-  /* animation: 5s 1 slide-from-bottom forwards; */
+  opacity: 0;
+  animation: 500ms 750ms 1 fade-in forwards;
+}
+
+.LandingPage__p {
+  position: relative;
+  top: 22.5vh;
+  color: #a5c5f5;
+  font-weight: 300;
+  letter-spacing: 1rem;
+  animation: 5s 1 slide-from-bottom forwards;
 }
 
 @keyframes slide-in-from-top {
@@ -53,11 +63,24 @@
   }
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
 @keyframes slide-from-bottom {
   from {
     transform: translateY(10vh);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
   }
 }
