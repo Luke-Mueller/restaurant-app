@@ -3,57 +3,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background: linear-gradient(#243461, #121524); 
+  z-index: -1; 
 }
 
 .LandingPage__img {
-  height: 2rem;
+  height: 3rem;
   position: fixed;
-  top: 15vh;
-  animation: 700ms 1 slide-in-from-top; 
+  top: -10vh;
+  /* right: 4vw; */
+  animation: 1.5s 1 slide-in-from-top; 
+  z-index: 2;
 }
 
 .LandingPage__div {
+  height: 100vh;
+  width: 100vw;
   position: fixed;
-  background: linear-gradient(#243461, #121524);
-  top: 0;
-  right: 0;
-  z-index: -1;
-  animation: 700ms 700ms 1 slide-from-upper-right forwards;
+  background-image: url('/assets/images/landing-page-background.jpeg');
+  background-position: center;
+  background-size: cover;
+  top: -100%;
+  z-index: 0;
+  animation: 300ms 1.25s 1 slide-from-upper-right forwards;
 }
 
-.LandingPage__h1 {
+/* .LandingPage__h1 {
   position: relative;
   top: 26vh;
   color: #a5c5f5;
-  font-weight: 300;
+  color: rgba(14, 0, 25, 0.8);
+  font-weight: 400;
   letter-spacing: 1.5rem;
   opacity: 0;
   animation: 500ms 750ms 1 fade-in forwards;
-}
+} */
 
-.LandingPage__p {
+.LandingPage__h2 {
   position: relative;
-  top: 27vh;
-  color: #a5c5f5;
-  font-weight: 300;
-  letter-spacing: 1rem;
-  animation: 5s 1 slide-from-bottom forwards;
+  top: 35vh;
+  color: rgba(14, 0, 25, 0.8);
+  font-weight: 500;
+  letter-spacing: 1.75rem;
+  opacity: 0;
+  z-index: 2;
+  animation: 4s 1s 1 slide-from-bottom forwards;
 }
 
 .LandingPage__button {
   height: 5rem;
   width: 8rem;
   position: fixed;
-  top: 55vh;
+  top: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   background: transparent;
   border: none;
-  color: #fff;
+  color: rgba(14, 0, 25, 0.8);
   font-size: 1.5rem;
-  animation: 5s 2s 1 fade-in forwards;
+  font-weight: 500;
+  z-index: 2;
+  animation: 5s 2.25s 1 fade-in forwards;
   transition: all 0.5s;
 }
 
@@ -67,24 +80,29 @@
 }
 
 @keyframes slide-in-from-top {
-  from {
-    transform: translateY(-10vh);
-    opacity: 0;
-  }
-  to {
+  0% {
     transform: translateY(0);
-    opacity: 1;
   }
+  20% {
+    transform: translateY(50vh);
+  }
+  80% {
+    transform: translateY(50vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+
 }
 
 @keyframes slide-from-upper-right {
   from {
-    height: 0;
-    width: 0;
+    top: -100%;
+    /* right: 0; */
   }
   to {
-    height: 100%;
-    width: 100%;
+    top: 0;
+    /* left: -100%; */
   }
 }
 
