@@ -6,11 +6,11 @@ const LandingPage = props => {
   return (
     <div className="LandingPage">
       <img
-        className="Landing__img"
+        className="LandingPage__img"
         src="/images/logo.png"
         alt="Spectrum Logo" />
-      <div className="Landing__div" />
-      <p className="Landing__p">{props.text}</p>
+      <div className="LandingPage__div" />
+      <p className="LandingPage__p">{props.text}</p>
     </div>
   );
 };
