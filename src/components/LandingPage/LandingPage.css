@@ -38,7 +38,7 @@
   letter-spacing: 1.75rem;
   opacity: 0;
   z-index: 2;
-  animation: 4s 1s 1 slide-from-bottom forwards;
+  animation: 3.5s 1s 1 slide-from-bottom forwards;
 }
 
 .LandingPage__button {
@@ -56,7 +56,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   z-index: 2;
-  animation: 5s 2.25s 1 fade-in forwards;
+  animation: 3s 2.5s 1 fade-in forwards;
   transition: all 0.5s;
 }
 
