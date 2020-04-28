@@ -8,7 +8,7 @@
 .LandingPage__img {
   height: 2rem;
   position: fixed;
-  top: 10vh;
+  top: 12.5vh;
   z-index: 100;
   animation: 1s 1 slide-in-from-top; 
 }
@@ -22,15 +22,13 @@
   animation: 700ms 700ms 1 slide-from-upper-right forwards;
 }
 
-.LandingPage__p {
+.LandingPage__h1 {
   position: relative;
-  top: 20vh;
+  top: 17.5vh;
   color: white;
-  font-size: 1.5rem;
   font-weight: 300;
-  letter-spacing: 1rem;
-  z-index: 100;
-  animation: 5s 1 slide-from-bottom forwards;
+  letter-spacing: 1.5rem;
+  /* animation: 5s 1 slide-from-bottom forwards; */
 }
 
 @keyframes slide-in-from-top {

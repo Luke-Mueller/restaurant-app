@@ -10,7 +10,7 @@ const LandingPage = props => {
         src="/assets/images/logo.png"
         alt="Spectrum Logo" />
       <div className="LandingPage__div" />
-      <p className="LandingPage__p">{props.text}</p>
+      <h1 className="LandingPage__h1">{props.text}</h1>
     </div>
   );
 };
