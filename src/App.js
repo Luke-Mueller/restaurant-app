@@ -9,8 +9,7 @@ function App() {
     <div className="App">
       <LandingPage 
         btnValue='ENTER'
-        text='Your table is ready'
-        title='Restaurant App' /> 
+        text='Your table is ready' /> 
     </div>
   );
 }
