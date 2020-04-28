@@ -8,9 +8,8 @@
 .LandingPage__img {
   height: 2rem;
   position: fixed;
-  top: 5vh;
-  z-index: 100;
-  animation: 1s 1 slide-in-from-top; 
+  top: 15vh;
+  animation: 700ms 1 slide-in-from-top; 
 }
 
 .LandingPage__div {
@@ -18,13 +17,13 @@
   background-color: #1c243d;
   top: 0;
   right: 0;
-  z-index: 0;
+  z-index: -1;
   animation: 700ms 700ms 1 slide-from-upper-right forwards;
 }
 
 .LandingPage__h1 {
   position: relative;
-  top: 20vh;
+  top: 26vh;
   color: #a5c5f5;
   font-weight: 300;
   letter-spacing: 1.5rem;
@@ -34,11 +33,22 @@
 
 .LandingPage__p {
   position: relative;
-  top: 22.5vh;
+  top: 27vh;
   color: #a5c5f5;
   font-weight: 300;
   letter-spacing: 1rem;
   animation: 5s 1 slide-from-bottom forwards;
+}
+
+.LandingPage__input {
+  position: fixed;
+  top: 55vh;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0;
+  animation: 5s 2s 1 fade-in forwards;
 }
 
 @keyframes slide-in-from-top {
