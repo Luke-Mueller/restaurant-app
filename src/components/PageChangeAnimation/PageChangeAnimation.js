@@ -2,9 +2,14 @@ import React from 'react';
 
 import './PageChangeAnimation.css';
 
-const PageChangeAnimation = () => {
+const PageChangeAnimation = props => {
+  let classname;
+  props.pageChanging ?
+    classname = "PCA active" :
+    classname = "PCA";
+
   return (
-    <div className="PCA">
+    <div className={classname}>
         <div className="PCA__div-top" />
         <div className="PCA__div-right" />
         <div className="PCA__div-bottom" />

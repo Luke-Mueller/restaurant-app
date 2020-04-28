@@ -10,12 +10,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <LandingPage 
+      <LandingPage
         btnValue='ENTER'
         pageChanging={pageChanging}
         setPageChanging={setPageChanging}
-        text='Your table is ready' /> 
-      <PageChangeAnimation />
+        text='Your table is ready' />
+      <PageChangeAnimation pageChanging={pageChanging} />
     </div>
   );
 };
