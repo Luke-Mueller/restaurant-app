@@ -4,7 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <LandingPage 
@@ -12,6 +12,6 @@ function App() {
         text='Your table is ready' /> 
     </div>
   );
-}
+};
 
 export default App;
