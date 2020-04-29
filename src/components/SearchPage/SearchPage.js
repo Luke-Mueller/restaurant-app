@@ -7,7 +7,7 @@ import './SearchPage.css';
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
 const SearchPage = props => {
-  // const [list, setList] = useState([]);
+  const [restaurantArr, setRestaurantArr] = useState([]);
 
   useEffect(() => {
     fetch(URL, {
@@ -17,10 +17,10 @@ const SearchPage = props => {
     })
     .then(resp => resp.json())
     .then(res => {
-      console.log('res: ', res)
+      console.log(res);
+      setRestaurantArr(res);
     })
-    .catch()
-
+    .catch(err => console.log(err));
   }, []);
 
   let classname = "SearchPage";
