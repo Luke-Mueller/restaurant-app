@@ -1,11 +1,9 @@
 import React from 'react';
 
-import States from '../../utils/states';
-
 import './StatesSelect.css';
 
-const StatesSelect = () => {
-  const states = States.map((state, idx) => {
+const StatesSelect = props => {
+  const states = props.states.map((state, idx) => {
     return (
       <option
         key={idx}
