@@ -6,10 +6,7 @@ const GenreSelect = props => {
   let genres = props.genresArr.sort();
   genres = props.genresArr.map((genre, idx) => {
     return (
-      <option
-        key={idx}
-        value={genre}
-        className="StatesSelect__option">
+      <option key={idx} value={genre}>
         {genre}
       </option>
     );
@@ -17,10 +14,7 @@ const GenreSelect = props => {
 
   return (
     <select name="genres" className="GenreSelect">
-      <option
-        key="default"
-        value="default"
-        className="GenreSelect__option">
+      <option key="default" value="default">
         Filter by genre
     </option>
     {genres}
