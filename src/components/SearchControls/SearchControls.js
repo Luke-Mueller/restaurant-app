@@ -8,11 +8,13 @@ import StateSelect from '../StateSelect/StateSelect';
 import './SearchControls.css';
 
 const SearchControls = props => {
-  return(
+  return (
     <div className="SearchControls">
       <SearchBar />
-      <StateSelect states={States} />
-      <GenreSelect genresArr={props.genresArr}/>
+      <div className="SearchControls__div">
+        <StateSelect states={States} />
+        <GenreSelect genresArr={props.genresArr} />
+      </div>
     </div>
   );
 };

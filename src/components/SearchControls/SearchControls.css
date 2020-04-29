@@ -1,0 +1,11 @@
+.SearchControls {
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.SearchControls__div {
+  display: flex;
+  justify-content: space-evenly;
+}
