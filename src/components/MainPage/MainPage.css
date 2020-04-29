@@ -1,16 +1,20 @@
-.SearchPage {
+.MainPage {
   position: fixed;
   height: 100vh;
   width: 100%;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-image: url('/assets/images/main-page-background.jpeg');
   background-size: cover;
   opacity: 0;
+  padding: 1rem;
   z-index: -1;
   transition: all 100ms 500ms;
 }
 
-.SearchPage.active {
+.MainPage.active {
   opacity: 1;
   z-index: 3;
 }

@@ -25,10 +25,10 @@ const SearchPage = props => {
     .catch(err => console.log(err));
   }, []);
 
-  let classname = "SearchPage";
+  let classname = "MainPage";
   props.entered ?
-    classname = "SearchPage active" :
-    classname = "SearchPage";
+    classname = "MainPage active" :
+    classname = "MainPage";
     
   return (
     <div className={classname}>

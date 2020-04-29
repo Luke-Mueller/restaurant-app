@@ -5,6 +5,7 @@
   background-color: #fff;
   border: 2px solid #acc1fc;
   border-radius: 50px;
+  margin: 1rem;
   overflow: hidden;
 }
 
@@ -19,7 +20,6 @@
 
 .SearchBar__input-text::placeholder {
   font-style: italic;
-  
 }
 
 .SearchBar__button {
