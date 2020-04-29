@@ -24,10 +24,10 @@ const SearchPage = props => {
   }, []);
 
   let classname = "SearchPage";
-
   props.entered ?
     classname = "SearchPage active" :
-    classname = "SearchPage"
+    classname = "SearchPage";
+    
   return (
     <div className={classname}>
 
