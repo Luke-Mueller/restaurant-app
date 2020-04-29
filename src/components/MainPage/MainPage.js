@@ -9,6 +9,7 @@ import './MainPage.css';
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
 const SearchPage = props => {
+  const [genresArr, setGenresArr] = useState([]);
   const [restaurantArr, setRestaurantArr] = useState([]);
 
   useEffect(() => {
@@ -17,22 +18,45 @@ const SearchPage = props => {
         Authorization: KEY
       }
     })
-    .then(resp => resp.json())
-    .then(res => {
-      console.log(res);
-      setRestaurantArr(res);
-    })
-    .catch(err => console.log(err));
+      .then(resp => resp.json())
+      .then(res => {
+        // RETRIEVES ALL AVAILABLE GENRES
+        const genres = [];
+        const includesArr = [];
+
+        res.forEach(element => {
+          const elGenre = element.genre;
+          const includes = elGenre.includes(',');
+          if (includes) {
+            const elGenreArr = elGenre.split(',');
+            includesArr.push(elGenreArr);
+          } else {
+            const found = genres.includes(elGenre);
+            if (!found) genres.push(elGenre);
+          };
+        });
+
+        const flatIncludesArr = includesArr.flat();
+        flatIncludesArr.forEach(gen => {
+          const found = genres.includes(gen);
+          if (!found) genres.push(gen);
+        });
+        
+        // SAVES GENRES AND RESTAURANT INFO TO STATE
+        setGenresArr(genres);
+        setRestaurantArr(res);
+      })
+      .catch(err => console.log(err));
   }, []);
 
   let classname = "MainPage";
   props.entered ?
     classname = "MainPage active" :
     classname = "MainPage";
-    
+
   return (
     <div className={classname}>
-      <SearchControls />
+      <SearchControls genresArr={genresArr} />
     </div>
   );
 };
