@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #1e2a4b; 
-  z-index: -1; 
+  z-index: 1; 
 }
 
 .LandingPage__img {
@@ -22,12 +22,12 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
+  top: -100%;
   background-image: url('/assets/images/landing-page-background.jpeg');
   background-position: center;
   background-size: cover;
-  top: -100%;
   z-index: 0;
-  animation: 300ms 1.25s 1 slide-from-upper-right forwards;
+  animation: 300ms 1.25s 1 slide-from-top forwards;
 }
 
 .LandingPage__h2 {
@@ -55,7 +55,7 @@
   color: rgba(14, 0, 25, 0.8);
   font-size: 1.5rem;
   font-weight: 500;
-  z-index: 2;
+  z-index: 100;
   animation: 3s 2.5s 1 fade-in forwards;
   transition: all 0.5s;
 }
@@ -85,14 +85,12 @@
 
 }
 
-@keyframes slide-from-upper-right {
+@keyframes slide-from-top {
   from {
     top: -100%;
-    /* right: 0; */
   }
   to {
     top: 0;
-    /* left: -100%; */
   }
 }
 

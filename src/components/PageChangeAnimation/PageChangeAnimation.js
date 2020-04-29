@@ -4,7 +4,7 @@ import './PageChangeAnimation.css';
 
 const PageChangeAnimation = props => {
   let classname;
-  props.pageChanging ?
+  props.entered ?
     classname = "PCA active" :
     classname = "PCA";
 

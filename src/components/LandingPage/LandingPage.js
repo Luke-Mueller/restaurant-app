@@ -13,7 +13,7 @@ const LandingPage = props => {
       <h2 className="LandingPage__h2">{props.text}</h2>
       <button 
         className="LandingPage__button"
-        onMouseUp={() => props.setPageChanging(true)}>
+        onMouseUp={() => props.setEntered(true)}>
         <span className="LandingPage__span">{props.btnValue}</span>
       </button>
     </div>

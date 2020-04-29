@@ -2,20 +2,22 @@ import React, { useState } from 'react';
 
 import LandingPage from './components/LandingPage/LandingPage';
 import PageChangeAnimation from './components/PageChangeAnimation/PageChangeAnimation';
+import SearchPage from './components/SearchPage/SearchPage';
 
 import './App.css';
 
 const App = () => {
-  const [pageChanging, setPageChanging] = useState(false);
+  const [entered, setEntered] = useState(false);
 
   return (
     <div className="App">
       <LandingPage
         btnValue='ENTER'
-        pageChanging={pageChanging}
-        setPageChanging={setPageChanging}
+        entered={entered}
+        setEntered={setEntered}
         text='Your table is ready' />
-      <PageChangeAnimation pageChanging={pageChanging} />
+      <SearchPage entered={entered} />
+      <PageChangeAnimation entered={entered} />
     </div>
   );
 };

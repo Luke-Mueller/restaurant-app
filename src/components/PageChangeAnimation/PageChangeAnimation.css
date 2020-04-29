@@ -39,26 +39,28 @@
 }
 
 .PCA.active :first-child {
-  animation: 0.76s 0.75s 1 slide-up;
+  animation: 0.51s 0.5s 1 slide-up;
 }
 
 .PCA.active :nth-child(2) {
-  animation: 0.75s 1 slide-left;
+  animation: 0.5s 1 slide-left;
 }
 
 .PCA.active :nth-child(3) {
-  animation: 0.76s 0.75s 1 slide-down;
+  animation: 0.51s 0.5s 1 slide-down;
 }
 
 .PCA.active :last-child {
-  animation: 0.75s 1 slide-right;
+  animation: 0.5s 1 slide-right;
 }
 
+/* ANIMATIONS */
+
 @keyframes slide-up {
-  0% {
+  from {
     top: 0;
   }
-  100% {
+  to {
     top: -50vh;
   }
 }
@@ -78,10 +80,10 @@
 }
 
 @keyframes slide-down {
-  0% {
+  from {
     top: 50vh;
   }
-  100% {
+  to {
     top: 100vh;
   }
 }
