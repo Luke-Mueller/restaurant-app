@@ -5,9 +5,10 @@ import States from '../../utils/states';
 import './StatesSelect.css';
 
 const StatesSelect = () => {
-  const states = States.map(state => {
+  const states = States.map((state, idx) => {
     return (
       <option
+        key={idx}
         value={state}
         className="StatesSelect__option">
         {state}
@@ -18,7 +19,8 @@ const StatesSelect = () => {
   return (
     <select name="states" className="StatesSelect">
       <option
-        value=""
+        key="default"
+        value="default"
         className="StatesSelect__option">
         Filter by state
       </option>

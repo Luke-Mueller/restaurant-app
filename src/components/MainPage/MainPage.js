@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import SearchBar from '../SearchBar/SearchBar';
+import SearchControls from '../SearchControls/SearchControls';
 
 import KEY from '../../utils/key';
 
@@ -32,7 +32,7 @@ const SearchPage = props => {
     
   return (
     <div className={classname}>
-      <SearchBar />
+      <SearchControls />
     </div>
   );
 };
