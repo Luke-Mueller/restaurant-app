@@ -3,7 +3,8 @@ import React from 'react';
 import './GenreSelect.css';
 
 const GenreSelect = props => {
-  const genres = props.genresArr.map((genre, idx) => {
+  let genres = props.genresArr.sort();
+  genres = props.genresArr.map((genre, idx) => {
     return (
       <option
         key={idx}
