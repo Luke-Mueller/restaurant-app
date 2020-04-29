@@ -15,7 +15,7 @@ const StatesSelect = props => {
   });
 
   return (
-    <select name="states" className="StatesSelect">
+    <select name="states" className="StateSelect">
       <option
         key="default"
         value="default"
