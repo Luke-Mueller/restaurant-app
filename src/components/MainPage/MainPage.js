@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+import SearchBar from '../SearchBar/SearchBar';
+
 import KEY from '../../utils/key';
 
-import './SearchPage.css';
+import './MainPage.css';
 
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
@@ -30,7 +32,7 @@ const SearchPage = props => {
     
   return (
     <div className={classname}>
-
+      <SearchBar />
     </div>
   );
 };

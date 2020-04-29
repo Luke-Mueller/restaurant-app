@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import LandingPage from './components/LandingPage/LandingPage';
 import PageChangeAnimation from './components/PageChangeAnimation/PageChangeAnimation';
-import SearchPage from './components/SearchPage/SearchPage';
+import MainPage from './components/MainPage/MainPage';
 
 import './App.css';
 
@@ -16,7 +16,7 @@ const App = () => {
         entered={entered}
         setEntered={setEntered}
         text='Your table is ready' />
-      <SearchPage entered={entered} />
+      <MainPage entered={entered} />
       <PageChangeAnimation entered={entered} />
     </div>
   );

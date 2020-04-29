@@ -3,7 +3,7 @@
   height: 100vh;
   width: 100%;
   top: 0;
-  background-image: url('/assets/images/search-page-background.jpeg');
+  background-image: url('/assets/images/main-page-background.jpeg');
   background-size: cover;
   opacity: 0;
   z-index: -1;

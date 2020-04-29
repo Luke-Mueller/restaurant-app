@@ -1,3 +1,44 @@
 .SearchBar {
+  height: 2.5rem;
+  width: 25rem;
+  display: flex;
+  background-color: #fff;
+  border: 2px solid #acc1fc;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.SearchBar__input-text {
+  height: 100%;
+  width: 100%;
+  border: none;
+  margin-left: 20px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.SearchBar__input-text::placeholder {
+  font-style: italic;
   
+}
+
+.SearchBar__button {
+  height: 100%;
+  width: 3rem;
+  background: #83a3fa;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBar__input-image {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+  background-color: #83a3fa;
+}
+
+.SearchBar__button:hover {
+  cursor: pointer;
 }
