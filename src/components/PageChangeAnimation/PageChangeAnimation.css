@@ -39,7 +39,7 @@
 }
 
 .PCA.active :first-child {
-  animation: 0.51s 0.5s 1 slide-up;
+  animation: 0.75s 0.5s 1 slide-up;
 }
 
 .PCA.active :nth-child(2) {
@@ -47,7 +47,7 @@
 }
 
 .PCA.active :nth-child(3) {
-  animation: 0.51s 0.5s 1 slide-down;
+  animation: 0.75s 0.5s 1 slide-down;
 }
 
 .PCA.active :last-child {
