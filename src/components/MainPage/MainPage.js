@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchControls from '../SearchControls/SearchControls';
+import Table from '../Table/Table';
+
+import './MainPage.css';
 
 import KEY from '../../utils/key';
 
-import './MainPage.css';
 
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
@@ -18,9 +20,9 @@ const SearchPage = props => {
         Authorization: KEY
       }
     })
-      .then(resp => resp.json())
+      .then(response => response.json())
       .then(res => {
-        // RETRIEVES ALL AVAILABLE GENRES
+        // RETRIEVES AND SAVES ALL AVAILABLE GENRES
         const genres = [];
         const includesArr = [];
 
@@ -41,15 +43,22 @@ const SearchPage = props => {
           const found = genres.includes(gen);
           if (!found) genres.push(gen);
         });
-        
-        // SAVES GENRES AND RESTAURANT INFO TO STATE
         setGenresArr(genres);
-        setRestaurantArr(res);
+
+        // SORTS AND SAVES ALL RESTAURANT OBJECTS
+        const sortedRes = res.sort((a, b) => {
+          const nameA = a.name.toUpperCase();
+          const nameB = b.name.toUpperCase();
+          if (nameA > nameB) return -1;
+          if (nameB > nameA) return 1;
+          return 0;
+        })
+        setRestaurantArr(sortedRes);
       })
       .catch(err => console.log(err));
   }, []);
 
-  let classname = "MainPage";
+  let classname;
   props.entered ?
     classname = "MainPage active" :
     classname = "MainPage";
@@ -57,6 +66,7 @@ const SearchPage = props => {
   return (
     <div className={classname}>
       <SearchControls genresArr={genresArr} />
+      <Table restaurantArr={restaurantArr} />
     </div>
   );
 };
