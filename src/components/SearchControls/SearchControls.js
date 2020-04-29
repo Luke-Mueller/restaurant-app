@@ -1,16 +1,18 @@
 import React from 'react';
 
+import GenreSelect from '../GenreSelect/GenreSelect';
 import SearchBar from '../SearchBar/SearchBar';
 import States from '../../utils/states';
-import StatesSelect from '../StatesSelect/StatesSelect';
+import StateSelect from '../StateSelect/StateSelect';
 
 import './SearchControls.css';
 
-const SearchControls = () => {
+const SearchControls = props => {
   return(
     <div className="SearchControls">
       <SearchBar />
-      <StatesSelect states={States} />
+      <StateSelect states={States} />
+      <GenreSelect genresArr={props.genresArr}/>
     </div>
   );
 };
