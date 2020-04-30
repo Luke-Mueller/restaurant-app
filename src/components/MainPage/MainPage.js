@@ -14,6 +14,8 @@ const SearchPage = props => {
   const [genresArr, setGenresArr] = useState([]);
   const [page, setPage] = useState(1);
   const [restaurantArr, setRestaurantArr] = useState([]);
+  const [arr, setArr] = useState([]);
+
   const ITEMS_PER_PAGE = 10;
   const maxPages = Math.ceil((restaurantArr.length + 1) / ITEMS_PER_PAGE);
 
@@ -58,9 +60,28 @@ const SearchPage = props => {
         })
         console.log(sortedRes);
         setRestaurantArr(sortedRes);
+        paginate(sortedRes);
       })
       .catch(err => console.log(err));
   }, []);
+
+  useEffect(() => {
+    paginate(restaurantArr);
+  }, [page]);
+
+  const paginate = (arr) => {
+    const list = arr.filter(restaurant => {
+      const idx = arr.indexOf(restaurant);
+      const start = (page - 1) * ITEMS_PER_PAGE;
+      if (
+        idx >= start &&
+        idx < start + ITEMS_PER_PAGE
+      ) {
+        return restaurant;
+      };
+    });
+    setArr(list);
+  }
 
   let classname;
   props.entered ?
@@ -70,10 +91,11 @@ const SearchPage = props => {
   return (
     <div className={classname}>
       <Header genresArr={genresArr} />
-      <Table 
+      <Table
+        ITEMS_PER_PAGE={ITEMS_PER_PAGE}
         page={page}
-        restaurantArr={restaurantArr} />
-      <PageBtns 
+        arr={arr} />
+      <PageBtns
         maxPages={maxPages}
         page={page}
         setPage={setPage} />
