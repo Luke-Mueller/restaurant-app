@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import SearchControls from '../SearchControls/SearchControls';
+import Header from '../Header/Header';
 import Table from '../Table/Table';
 
 import './MainPage.css';
 
 import KEY from '../../utils/key';
-
 
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
@@ -53,6 +52,7 @@ const SearchPage = props => {
           if (nameB > nameA) return 1;
           return 0;
         })
+        console.log(sortedRes);
         setRestaurantArr(sortedRes);
       })
       .catch(err => console.log(err));
@@ -65,7 +65,7 @@ const SearchPage = props => {
 
   return (
     <div className={classname}>
-      <SearchControls genresArr={genresArr} />
+      <Header genresArr={genresArr} />
       <Table restaurantArr={restaurantArr} />
     </div>
   );
