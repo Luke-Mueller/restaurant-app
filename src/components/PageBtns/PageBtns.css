@@ -1,0 +1,18 @@
+.PageBtns {
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.PageBtns__button {
+  border: none;
+}
+
+.PageBtns__button:hover {
+  cursor: pointer;
+}
+
+.PageBtns__img {
+  height: 1rem;
+  width: 1rem;
+}
