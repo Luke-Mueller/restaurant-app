@@ -1,5 +1,5 @@
 .SearchBar {
-  height: 2.5rem;
+  height: 2rem;
   width: 25rem;
   display: flex;
   background-color: #fff;
@@ -13,7 +13,7 @@
   width: 100%;
   border: none;
   margin-left: 20px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   background-color: #fff;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .SearchBar__input-image {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1rem;
+  width: 1rem;
   border: none;
   background-color: #6384df;
 }
