@@ -9,7 +9,6 @@ const Row = props => {
       <p>{props.restaurant.city}</p>
       <p>{props.restaurant.telephone}</p>
       <p>{props.restaurant.genre}</p>
-      <p>{props.restaurant.name}</p>
     </div>
   )
 };
