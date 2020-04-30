@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Header from '../Header/Header';
+import PageBtns from '../PageBtns/PageBtns';
 import Table from '../Table/Table';
 
 import './MainPage.css';
@@ -11,7 +12,10 @@ const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
 
 const SearchPage = props => {
   const [genresArr, setGenresArr] = useState([]);
+  const [page, setPage] = useState(1);
   const [restaurantArr, setRestaurantArr] = useState([]);
+  const ITEMS_PER_PAGE = 10;
+  const maxPages = Math.ceil((restaurantArr.length + 1) / ITEMS_PER_PAGE);
 
   useEffect(() => {
     fetch(URL, {
@@ -48,8 +52,8 @@ const SearchPage = props => {
         const sortedRes = res.sort((a, b) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
-          if (nameA > nameB) return -1;
-          if (nameB > nameA) return 1;
+          if (nameA > nameB) return 1;
+          if (nameB > nameA) return -1;
           return 0;
         })
         console.log(sortedRes);
@@ -66,7 +70,13 @@ const SearchPage = props => {
   return (
     <div className={classname}>
       <Header genresArr={genresArr} />
-      <Table restaurantArr={restaurantArr} />
+      <Table 
+        page={page}
+        restaurantArr={restaurantArr} />
+      <PageBtns 
+        maxPages={maxPages}
+        page={page}
+        setPage={setPage} />
     </div>
   );
 };
