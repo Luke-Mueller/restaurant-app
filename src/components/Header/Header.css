@@ -1,0 +1,15 @@
+.Header {
+  height: 12vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url('/assets/images/main-page-background.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  padding: 0 2rem;
+}
+
+.Header__img {
+  height: 4rem;
+}
