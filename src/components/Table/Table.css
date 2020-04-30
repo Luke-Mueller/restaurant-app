@@ -1,5 +1,5 @@
 .Table {
-  height: 88vh;
+  height: 70vh;
   width: 66vw;
-  border: 1px solid black;
+  overflow: scroll;
 }
