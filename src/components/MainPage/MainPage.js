@@ -8,17 +8,21 @@ import './MainPage.css';
 
 import KEY from '../../utils/key';
 
-const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants'
+const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants';
 
 const SearchPage = props => {
+  const [genre, setGenre] = useState('All');
   const [genresArr, setGenresArr] = useState([]);
   const [page, setPage] = useState(1);
+  const [paginatedArr, setPaginatedArr] = useState([]);
+  const [query, setQuery] = useState('');
   const [restaurantArr, setRestaurantArr] = useState([]);
-  const [arr, setArr] = useState([]);
+  const [state, setState] = useState('All');
 
   const ITEMS_PER_PAGE = 10;
-  const maxPages = Math.ceil((restaurantArr.length + 1) / ITEMS_PER_PAGE);
+  const maxPages = Math.ceil((restaurantArr.length) / ITEMS_PER_PAGE);
 
+  // RETRIEVES AND SAVES ALL AVAILABLE GENRES
   useEffect(() => {
     fetch(URL, {
       headers: {
@@ -27,7 +31,6 @@ const SearchPage = props => {
     })
       .then(response => response.json())
       .then(res => {
-        // RETRIEVES AND SAVES ALL AVAILABLE GENRES
         const genres = [];
         const includesArr = [];
 
@@ -49,39 +52,92 @@ const SearchPage = props => {
           if (!found) genres.push(gen);
         });
         setGenresArr(genres);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
-        // SORTS AND SAVES ALL RESTAURANT OBJECTS
-        const sortedRes = res.sort((a, b) => {
+  // ANALYZES USER SEARCH AND RETURNS RESULT
+  useEffect(() => {
+    fetch(URL, {
+      headers: {
+        Authorization: KEY
+      }
+    })
+      .then(response => response.json())
+      .then(res => {
+        let error, genreArr, queryArr, stateArr;
+        // FILTERS TEXT INPUT
+        if (query !== '') {
+          queryArr = res.filter(restaurant => {
+            return (
+              restaurant.name.toUpperCase() === query.toUpperCase() ||
+              restaurant.city.toUpperCase() === query.toUpperCase() ||
+              restaurant.genre.toUpperCase().includes(query.toUpperCase())
+            )
+          })
+          if (!queryArr.length) {
+            error = 'Your search found no results'
+          }
+        } else {
+          queryArr = res;
+        }
+        // FILTERS GENRE
+        if (genre !== 'All') {
+          genreArr = queryArr.filter(restaurant => restaurant.genre.includes(genre));
+          if (!genreArr.length && !error) {
+            error = 'There are no results of that genre'
+          }
+        } else {
+          genreArr = queryArr;
+        }
+        // FILTERS STATE
+        if (state !== 'All') {
+          stateArr = genreArr.filter(restaurant => restaurant.state === state);
+          if (!stateArr.length && !error) {
+            error = 'There are no results in your state'
+          }
+        } else {
+          stateArr = genreArr;
+        }
+        // SORTS RESULT
+        let sortedArr = stateArr.sort((a, b) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA > nameB) return 1;
           if (nameB > nameA) return -1;
           return 0;
-        })
-        console.log(sortedRes);
-        setRestaurantArr(sortedRes);
-        paginate(sortedRes);
+        });
+        // CREATES ERROR RESULT
+        if (!sortedArr.length) {
+          sortedArr = [{
+            name: error,
+            city: '',
+            telephone: '',
+            genre: ''
+          }]
+        };
+        setRestaurantArr(sortedArr);
+        setPage(1)
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [genre, query, state]);
 
+  // PAGINATES RESULT
   useEffect(() => {
-    paginate(restaurantArr);
-  }, [page]);
-
-  const paginate = (arr) => {
-    const list = arr.filter(restaurant => {
-      const idx = arr.indexOf(restaurant);
+    const list = restaurantArr.filter(restaurant => {
+      const idx = restaurantArr.indexOf(restaurant);
       const start = (page - 1) * ITEMS_PER_PAGE;
       if (
         idx >= start &&
         idx < start + ITEMS_PER_PAGE
       ) {
         return restaurant;
-      };
+      } else {
+        return null;
+      }
     });
-    setArr(list);
-  }
+    setPaginatedArr(list);
+  }, [page, restaurantArr]);
 
   let classname;
   props.entered ?
@@ -90,11 +146,16 @@ const SearchPage = props => {
 
   return (
     <div className={classname}>
-      <Header genresArr={genresArr} />
+      <div className="MainPage__div" />
+      <Header
+        genresArr={genresArr}
+        setGenre={setGenre}
+        setQuery={setQuery}
+        setState={setState} />
       <Table
+        arr={paginatedArr}
         ITEMS_PER_PAGE={ITEMS_PER_PAGE}
-        page={page}
-        arr={arr} />
+        page={page} />
       <PageBtns
         maxPages={maxPages}
         page={page}
