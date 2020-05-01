@@ -1,17 +1,23 @@
 import React from 'react';
 
-import SearchControls from '../SearchControls/SearchControls';
+import SearchForm from '../SearchForm/SearchForm';
 
 import './Header.css';
 
 const Header = props => {
   return (
     <header className="Header">
-      <img
-        className="Header__img"
-        src="/assets/images/logo.png"
-        alt="Spectrum Logo" />
-      <SearchControls genresArr={props.genresArr} />
+      <a href="http://www.spectrum.com">
+        <img
+          className="Header__img"
+          src="/assets/images/logo.png"
+          alt="Spectrum Logo" />
+      </a>
+      <SearchForm
+        genresArr={props.genresArr}
+        setGenre={props.setGenre}
+        setQuery={props.setQuery}
+        setState={props.setState} />
     </header>
   );
 };
