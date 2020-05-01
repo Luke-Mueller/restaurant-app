@@ -5,8 +5,8 @@ import Row from '../Row/Row';
 import './Table.css';
 
 const Table = props => {
-  const restaurants = props.arr.map(restaurant => {
-    return <Row restaurant={restaurant} />
+  const restaurants = props.arr.map((restaurant, idx) => {
+    return <Row restaurant={restaurant} key={idx} />
   });
 
   return (
