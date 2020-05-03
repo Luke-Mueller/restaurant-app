@@ -1,43 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 import Button from '../../components/ButtonComps/Button/Button';
-import States from '../../utils/states';
-import UserInput from '../../components/InputComps/UserInput/UserInput';
-import UserOption from '../../components/InputComps/UserOption/UserOption';
+import UserInput from '../../components/UserInputComps/UserInput/UserInput';
+import UserOption from '../../components/UserInputComps/UserOption/UserOption';
+
+import { CreateOptions } from '../../utils/globalFuncs';
 
 import './SearchForm.css';
 
 const SearchForm = props => {
+  const [attireInput, setAttireInput] = useState('');
   const [genreInput, setGenreInput] = useState('');
   const [stateInput, setStateInput] = useState('');
   const [textInput, setTextInput] = useState('');
 
-  // SENDS QUERIES WHEN USERINPUTS CHANGE
   useEffect(() => {
-    props.query(genreInput, stateInput, textInput);
+    props.query([attireInput, genreInput, stateInput, textInput]);
     // eslint-disable-next-line
-  }, [genreInput, stateInput, textInput]);
+  }, [attireInput, genreInput, stateInput, textInput]);
 
-  // CREATES DEFAULT OPTION ELEMENT FOR STATE SELECT
-  const stateOptions = States.map((state, idx) => {
-    return (
-      <UserOption
-        content={state.name}
-        key={idx}
-        value={state.abb} />
-    );
-  });
-
-  // CREATES DEFAULT OPTION ELEMENT FOR GENRE SELECT
-  let genresOptions = props.genresArr.sort();
-  genresOptions = props.genresArr.map((genre, idx) => {
-    return (
-      <UserOption
-        content={genre}
-        key={idx}
-        value={genre} />
-    );
-  });
+  const attireOptions = CreateOptions('attire', props.attireArr);
+  const genreOptions = CreateOptions('genre', props.genreArr);
+  const stateOptions = CreateOptions('state');
 
   const submit = e => {
     props.query(genreInput, stateInput, textInput);
@@ -63,26 +47,38 @@ const SearchForm = props => {
       </div>
       <div className="SearchForm__div-select">
         <UserInput
-          className="SearchForm__select-left"
+          className="SearchForm__select"
+          name="attire"
+          onChange={e => setAttireInput(e.target.value)}
+          type="select"
+          value={attireInput}>
+          <UserOption
+            content="Filter by attire (All)"
+            myKey="default"
+            value="" />
+          {attireOptions}
+        </UserInput>
+        <UserInput
+          className="SearchForm__select"
           name="genre"
           onChange={e => setGenreInput(e.target.value)}
           type="select"
           value={genreInput}>
           <UserOption
             content="Filter by genre (All)"
-            key="default"
+            myKey="default"
             value="" />
-          {genresOptions}
+          {genreOptions}
         </UserInput>
         <UserInput
-          className="SearchForm__select-right"
+          className="SearchForm__select"
           name="state"
           onChange={e => setStateInput(e.target.value)}
           type="select"
           value={stateInput} >
           <UserOption
             content="Filter by state (All)" 
-            key="default"
+            myKey="default"
             value="" />
           {stateOptions}
         </UserInput>
