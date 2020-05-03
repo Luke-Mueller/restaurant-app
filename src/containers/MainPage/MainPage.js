@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+import Backdrop from '../../components/Backdrop/Backdrop';
+import Details from '../../components/Details/Details';
 import Header from '../../components/Header/Header';
-import PageBtns from '../../components/PageBtns/PageBtns';
-import Table from '../../components/Table/Table';
+import PageBtns from '../../components/ButtonComps/PageBtns/PageBtns';
+import Table from '../../components/TableComps/Table/Table';
 
 import './MainPage.css';
 
 import { ITEMS_PER_PAGE } from '../../utils/globalVars';
 
 const MainPage = props => {
+  const [details, setDetails] = useState([]);
   const [paginatedResult, setPaginatedResult] = useState([]);
+  const [showDetails, setShowDetails] = useState(false);
 
   const maxPages = Math.ceil((props.queryResult.length) / ITEMS_PER_PAGE);
 
@@ -29,26 +33,49 @@ const MainPage = props => {
     // eslint-disable-next-line
   }, [props.page, props.queryResult]);
 
-  let classname;
+  const setDetailsHandler = details => {
+    setDetails(details)
+    setShowDetails(true);
+  };
+
+  let className, bClassName, dClassName;
   props.entered ?
-    classname = "MainPage active" :
-    classname = "MainPage";
+    className = "MainPage active" :
+    className = "MainPage";
+  if (showDetails) {
+    bClassName = "Backdrop active";
+    dClassName = "Details active";
+  } else {
+    bClassName = "Backdrop";
+    dClassName = "Details";
+  };
 
   return (
-    <div className={classname}>
+    <div className={className}>
       <div className="MainPage__div" />
       <Header
-        genresArr={props.genresArr}
+        attireArr={props.attireArr}
+        genreArr={props.genreArr}
         query={props.query} />
       <Table
         className="MainPage__table"
         ITEMS_PER_PAGE={ITEMS_PER_PAGE}
         page={props.page}
-        paginatedResult={paginatedResult} />
+        paginatedResult={paginatedResult}
+        setDetails={setDetailsHandler}
+        setShowDetails={setShowDetails} />
       <PageBtns
         maxPages={maxPages}
         page={props.page}
         setPage={props.setPage} />
+      <Backdrop className={bClassName}>
+        <Details
+          className={dClassName}
+          details={details}
+          divClassName="Details__div"
+          setShowDetails={setShowDetails}
+          showDetails={showDetails} />
+      </Backdrop>
     </div>
   );
 };
