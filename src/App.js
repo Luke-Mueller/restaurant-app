@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
 import EnterAnimation from './components/EnterAnimation/EnterAnimation';
-import LandingPage from './components/LandingPage/LandingPage';
+import LandingPage from './components/LandingComps/LandingPage/LandingPage';
 import MainPage from './containers/MainPage/MainPage';
 
+import { Filter } from './utils/globalFuncs';
+import { Save } from './utils/globalFuncs';
 import { KEY } from './utils/globalVars';
 import { URL } from './utils/globalVars';
 
 const App = () => {    
+  const [attireArr, setAttireArr] = useState([]);
   const [entered, setEntered] = useState(false);
-  const [genresArr, setGenresArr] = useState([]);
+  const [genreArr, setGenreArr] = useState([]);
   const [loaded, setLoaded] = useState(false);
   const [page, setPage] = useState(1);
   const [queryResult, setQueryResult] = useState([]);
@@ -24,60 +27,30 @@ const App = () => {
     })
       .then(response => response.json())
       .then(res => {
-        const genres = [];
-        const includesArr = [];
-        res.forEach(element => {
-          const elGenre = element.genre;
-          const includes = elGenre.includes(',');
-          if (includes) {
-            const elGenreArr = elGenre.split(',');
-            includesArr.push(elGenreArr);
-          } else {
-            const found = genres.includes(elGenre);
-            if (!found) genres.push(elGenre);
-          };
-        });
-        const flatIncludesArr = includesArr.flat();
-        flatIncludesArr.forEach(gen => {
-          const found = genres.includes(gen);
-          if (!found) genres.push(gen);
-        });
-        setGenresArr(genres);
+        const genres = Save('genre', res);
+        const attires = Save('attire', res);
+        setGenreArr(genres);
+        setAttireArr(attires);
         setRestaurantArr(res);
-        query('', '', '', res);
+        query(['', '', '', ''], res);
         setLoaded(true);
       })
       .catch(err => console.log(err));
     // eslint-disable-next-line
   }, []);
 
-  const query = (genre, state, text, arr) => {
-    let array, error, genreRes, stateRes, textRes;
+  const query = (queries, arr) => {
+    let array, error, attireArr, attireErr, genreArr, genreErr, stateArr, stateErr, textArr, textErr;
     if (arr) array = arr;
     else array = restaurantArr;
-    // FILTERS BY TEXT
-    if (text !== '') {
-      textRes = array.filter(restaurant => {
-        return (
-          restaurant.name.toUpperCase().includes(text.toUpperCase()) ||
-          restaurant.city.toUpperCase().includes(text.toUpperCase()) ||
-          restaurant.genre.toUpperCase().includes(text.toUpperCase())
-        );
-      });
-      if (!textRes.length) error = 'Your search found no results';
-    } else textRes = array;
-    // FILTERS BY GENRE
-    if (genre !== '') {
-      genreRes = textRes.filter(restaurant => restaurant.genre.includes(genre));
-      if (!genreRes.length && !error) error = 'There are no results of that genre';
-    } else genreRes = textRes;
-    // FILTERS BY STATE
-    if (state !== '') {
-      stateRes = genreRes.filter(restaurant => restaurant.state === state);
-      if (!stateRes.length && !error) error = 'There are no results in your state';
-    } else stateRes = genreRes;
+    // FILTERS QUERIES
+    [textArr, textErr] = Filter(array, 'text', queries[3], error);
+    [attireArr, attireErr] = Filter(textArr, 'attire', queries[0], textErr);
+    [genreArr, genreErr] = Filter(attireArr, 'genre', queries[1], attireErr);
+    [stateArr, stateErr] = Filter(genreArr, 'state', queries[2], genreErr);
+    error = stateErr;
     // SORTS RESULT
-    let sortedRes = stateRes.sort((a, b) => {
+    let sortedArr = stateArr.sort((a, b) => {
       const nameA = a.name.toUpperCase();
       const nameB = b.name.toUpperCase();
       if (nameA > nameB) return 1;
@@ -85,15 +58,15 @@ const App = () => {
       return 0;
     });
     // CREATES ERROR RESULT
-    if (!sortedRes.length) {
-      sortedRes = [{
+    if (!sortedArr.length) {
+      sortedArr = [{
         name: error,
         city: '',
         telephone: '',
         genre: ''
       }];
     };
-    setQueryResult(sortedRes);
+    setQueryResult(sortedArr);
     setPage(1);
   };
 
@@ -106,8 +79,9 @@ const App = () => {
         setEntered={setEntered}
         text='Your table is ready' />
       <MainPage 
+        attireArr={attireArr}
         entered={entered} 
-        genresArr={genresArr}
+        genreArr={genreArr}
         page={page}
         query={query}
         queryResult={queryResult}
