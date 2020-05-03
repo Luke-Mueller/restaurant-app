@@ -12,7 +12,8 @@ const Header = props => {
         src="/assets/images/logo.png"
         alt="Spectrum Logo" />
       <SearchForm
-        genresArr={props.genresArr}
+        attireArr={props.attireArr}
+        genreArr={props.genreArr}
         query={props.query} />
     </header>
   );
