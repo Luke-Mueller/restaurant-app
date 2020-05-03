@@ -32,7 +32,8 @@ const LandingPage = props => {
         text={props.text} />
       <Button
         className={buttonClassName}
-        onMouseUp={() => props.setEntered(true)}>
+        onMouseUp={() => props.setEntered(true)}
+        type="button">
         <span>{props.btnValue}</span>
       </Button>
     </div>
