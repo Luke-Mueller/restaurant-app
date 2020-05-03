@@ -1,0 +1,59 @@
+.Details {
+  height: 50vh;
+  width: 40vw;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  top: 5vh;
+  left: 30vw;
+  opacity: 0;
+  padding: 1rem;
+  z-index: 100;
+  transition: all .25s ease-out;
+}
+
+.Details.active {
+  opacity: 1;
+  transform: translateY(5vh);
+}
+
+.Details__div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 1rem
+}
+
+.Details h3,
+.Details h5 {
+  font-weight: 400;
+  margin: .25rem;
+}
+
+.Details__button {
+  height: 3rem;
+  width: 5.5rem;
+  z-index: 500;
+  align-self: center;
+  border: 1px solid #aaa;
+  color: #444;
+}
+
+.Details__button:hover {
+  cursor: pointer;
+  background-color: #aaa;
+  color: #444; 
+}
+
+.Details__button:active {
+  cursor: pointer;
+  background-color: #444;
+  color: #aaa; 
+}
+
+
