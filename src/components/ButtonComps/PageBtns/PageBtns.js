@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Button from '../Button/Button';
+import arrowLeft from '../../../assets/arrow-left.png';
+import arrowRight from '../../../assets/arrow-right.png';
 
 import './PageBtns.css';
 
@@ -13,7 +15,7 @@ const PageBtns = props => {
       <Button
         className="PageBtns__button"
         imgAlt="Left arrow"
-        imgSrc="/assets/images/arrow-left.png"
+        imgSrc={arrowLeft}
         imgClassName="PageBtns__img"
         onClick={() => props.setPage(props.page - 1)}
         type="button" />
@@ -26,7 +28,7 @@ const PageBtns = props => {
       <Button
       className="PageBtns__button"
       imgAlt="Right arrow"
-      imgSrc="/assets/images/arrow-right.png"
+      imgSrc={arrowRight}
       imgClassName="PageBtns__img"
       onClick={() => props.setPage(props.page + 1)}
       type="button" />

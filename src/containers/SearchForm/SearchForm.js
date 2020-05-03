@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Button from '../../components/ButtonComps/Button/Button';
+import image from '../../assets/search.png';
 import UserInput from '../../components/UserInputComps/UserInput/UserInput';
 import UserOption from '../../components/UserInputComps/UserOption/UserOption';
 
@@ -42,7 +43,7 @@ const SearchForm = props => {
           className="SearchForm__button"
           imgAlt="Magnifying glass"
           imgClassName="SearchForm__img"
-          imgSrc="/assets/images/search.png"
+          imgSrc={image}
           type="submit" />
       </div>
       <div className="SearchForm__div-select">

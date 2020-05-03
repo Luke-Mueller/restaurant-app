@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '../../ButtonComps/Button/Button';
 import LandingContent from '../LandingContent/LandingContent';
 
+
 import './LandingPage.css';
 
 const LandingPage = props => {
@@ -28,7 +29,7 @@ const LandingPage = props => {
         h2ClassName={h2ClassName}
         imgAlt="Spectrum Logo" 
         imgClassName={imgClassName}
-        imgSrc="/assets/images/logo.png"
+        imgSrc="assets/images/logo.png"
         text={props.text} />
       <Button
         className={buttonClassName}

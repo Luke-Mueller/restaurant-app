@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SearchForm from '../../containers/SearchForm/SearchForm';
+import image from '../../assets/logo.png';
 
 import './Header.css';
 
@@ -9,7 +10,7 @@ const Header = props => {
     <header className="Header">
       <img
         className="Header__img"
-        src="/assets/images/logo.png"
+        src={image}
         alt="Spectrum Logo" />
       <SearchForm
         attireArr={props.attireArr}
