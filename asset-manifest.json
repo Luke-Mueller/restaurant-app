@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/restaurant-app/static/css/main.ff1eb585.chunk.css",
-    "main.js": "/restaurant-app/static/js/main.4615a105.chunk.js",
-    "main.js.map": "/restaurant-app/static/js/main.4615a105.chunk.js.map",
+    "main.css": "/restaurant-app/static/css/main.e998e8a1.chunk.css",
+    "main.js": "/restaurant-app/static/js/main.cdde5bab.chunk.js",
+    "main.js.map": "/restaurant-app/static/js/main.cdde5bab.chunk.js.map",
     "runtime-main.js": "/restaurant-app/static/js/runtime-main.ce6e3fbc.js",
     "runtime-main.js.map": "/restaurant-app/static/js/runtime-main.ce6e3fbc.js.map",
-    "static/js/2.53d80bfc.chunk.js": "/restaurant-app/static/js/2.53d80bfc.chunk.js",
-    "static/js/2.53d80bfc.chunk.js.map": "/restaurant-app/static/js/2.53d80bfc.chunk.js.map",
+    "static/js/2.f810d649.chunk.js": "/restaurant-app/static/js/2.f810d649.chunk.js",
+    "static/js/2.f810d649.chunk.js.map": "/restaurant-app/static/js/2.f810d649.chunk.js.map",
     "index.html": "/restaurant-app/index.html",
-    "precache-manifest.c67a3cd6cd32b29a2fe4db2108739b1b.js": "/restaurant-app/precache-manifest.c67a3cd6cd32b29a2fe4db2108739b1b.js",
+    "precache-manifest.6cf360963d86e00ca1727e5f42fc5e82.js": "/restaurant-app/precache-manifest.6cf360963d86e00ca1727e5f42fc5e82.js",
     "service-worker.js": "/restaurant-app/service-worker.js",
-    "static/css/main.ff1eb585.chunk.css.map": "/restaurant-app/static/css/main.ff1eb585.chunk.css.map",
-    "static/js/2.53d80bfc.chunk.js.LICENSE.txt": "/restaurant-app/static/js/2.53d80bfc.chunk.js.LICENSE.txt"
+    "static/css/main.e998e8a1.chunk.css.map": "/restaurant-app/static/css/main.e998e8a1.chunk.css.map",
+    "static/js/2.f810d649.chunk.js.LICENSE.txt": "/restaurant-app/static/js/2.f810d649.chunk.js.LICENSE.txt",
+    "static/media/LandingPage.css": "/restaurant-app/static/media/landing-page-background.6991257f.jpeg",
+    "static/media/logo.png": "/restaurant-app/static/media/logo.14874718.png",
+    "static/media/Header.css": "/restaurant-app/static/media/main-page-background.b4210133.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.ce6e3fbc.js",
-    "static/js/2.53d80bfc.chunk.js",
-    "static/css/main.ff1eb585.chunk.css",
-    "static/js/main.4615a105.chunk.js"
+    "static/js/2.f810d649.chunk.js",
+    "static/css/main.e998e8a1.chunk.css",
+    "static/js/main.cdde5bab.chunk.js"
   ]
 }
