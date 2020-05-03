@@ -5,8 +5,9 @@ import LandingPage from './components/LandingComps/LandingPage/LandingPage';
 import MainPage from './containers/MainPage/MainPage';
 
 import { Filter } from './utils/globalFuncs';
-import { Save } from './utils/globalFuncs';
 import { KEY } from './utils/globalVars';
+import { Save } from './utils/globalFuncs';
+// import { Sort } from './utils/globalFuncs';
 import { URL } from './utils/globalVars';
 
 const App = () => {    
@@ -29,8 +30,8 @@ const App = () => {
       .then(res => {
         const genres = Save('genre', res);
         const attires = Save('attire', res);
-        setGenreArr(genres);
-        setAttireArr(attires);
+        setGenreArr(genres.sort());
+        setAttireArr(attires.sort());
         setRestaurantArr(res);
         query(['', '', '', ''], res);
         setLoaded(true);

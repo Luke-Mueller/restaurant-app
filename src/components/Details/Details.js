@@ -14,7 +14,7 @@ const Details = props => {
         <h5>{props.details.genre}</h5>
         <h5>{props.details.hours}</h5>
         <h5>{props.details.telephone}</h5>
-        <h5>{props.details.website}</h5>
+        <a href={props.details.website}>{props.details.website}</a>
       </div>
       <Button
         className="Details__button"
