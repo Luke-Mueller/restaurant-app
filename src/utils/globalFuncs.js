@@ -12,7 +12,7 @@ export const CreateOptions = (attr, arr) => {
           content={state.name}
           key={idx}
           value={state.abb} />
-      )
+      );
     });
   } else {
     options = arr.map((option, idx) => {
@@ -21,7 +21,7 @@ export const CreateOptions = (attr, arr) => {
           content={option}
           key={idx}
           value={option} />
-      )
+      );
     });
   };
   return options;
