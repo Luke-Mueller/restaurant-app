@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
 
 import EnterAnimation from './components/EnterAnimation/EnterAnimation';
 import LandingPage from './components/LandingComps/LandingPage/LandingPage';
