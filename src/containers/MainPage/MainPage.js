@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Backdrop from '../../components/Backdrop/Backdrop';
-import Details from '../../components/Details/Details';
+import Details from '../../components/DetailComps/Details/Details';
 import Header from '../../components/Header/Header';
 import PageBtns from '../../components/ButtonComps/PageBtns/PageBtns';
 import Table from '../../components/TableComps/Table/Table';
@@ -72,9 +72,7 @@ const MainPage = props => {
         <Details
           className={dClassName}
           details={details}
-          divClassName="Details__div"
-          setShowDetails={setShowDetails}
-          showDetails={showDetails} />
+          setShowDetails={setShowDetails} />
       </Backdrop>
     </div>
   );

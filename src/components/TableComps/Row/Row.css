@@ -5,13 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #ccc;
   padding: 1rem;
   margin: 0.5rem 0;
-}
-
-.Row:hover {
-  cursor: pointer;
 }
 
 .Row__div {
@@ -27,6 +23,13 @@
 
 .Row__p-name {
   color: #567194;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.Row__p-name:hover {
+  cursor: pointer;
+  color: #d67f1c;
   font-size: 1.2rem;
   font-weight: 300;
 }

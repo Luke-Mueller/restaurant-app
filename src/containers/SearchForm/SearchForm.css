@@ -48,15 +48,6 @@
   align-items: center;
 }
 
-.SearchForm__button:hover {
-  cursor: pointer;
-  background-color: #4c67b9; 
-}
-
-.SearchForm__button:hover :first-child{
-  background-color: #4c67b9; 
-}
-
 .SearchForm__img {
   height: 1rem;
   width: 1rem;

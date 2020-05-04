@@ -1,11 +1,11 @@
 .Details {
-  height: 50vh;
+  height: 55vh;
   width: 40vw;
   background-color: #fff;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   top: 5vh;
   left: 30vw;
@@ -53,7 +53,5 @@
 .Details__button:active {
   cursor: pointer;
   background-color: #444;
-  color: #aaa; 
+  color: #fff; 
 }
-
-

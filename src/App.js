@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import mapboxgl from 'mapbox-gl';
 
 import EnterAnimation from './components/EnterAnimation/EnterAnimation';
 import LandingPage from './components/LandingComps/LandingPage/LandingPage';
@@ -7,10 +8,9 @@ import MainPage from './containers/MainPage/MainPage';
 import { Filter } from './utils/globalFuncs';
 import { KEY } from './utils/globalVars';
 import { Save } from './utils/globalFuncs';
-// import { Sort } from './utils/globalFuncs';
 import { URL } from './utils/globalVars';
 
-const App = () => {    
+const App = () => {
   const [attireArr, setAttireArr] = useState([]);
   const [entered, setEntered] = useState(false);
   const [genreArr, setGenreArr] = useState([]);
@@ -18,6 +18,7 @@ const App = () => {
   const [page, setPage] = useState(1);
   const [queryResult, setQueryResult] = useState([]);
   const [restaurantArr, setRestaurantArr] = useState([]);
+
 
   // SAVES ALL AVAILABLE ATTIRES, GENRES & RESTAURANTS FROM API
   useEffect(() => {
@@ -79,9 +80,9 @@ const App = () => {
         loaded={loaded}
         setEntered={setEntered}
         text='Your table is ready' />
-      <MainPage 
+      <MainPage
         attireArr={attireArr}
-        entered={entered} 
+        entered={entered}
         genreArr={genreArr}
         page={page}
         query={query}

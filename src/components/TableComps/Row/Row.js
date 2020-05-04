@@ -4,10 +4,12 @@ import './Row.css';
 
 const Row = props => {
   return (
-    <div className="Row" onClick={props.onClick}>
+    <div className="Row">
       <div className="Row__div">
-          <p className="Row__p-name">{props.restaurant.name}</p>
-          <p className="Row__p">{props.restaurant.telephone}</p>
+        <p className="Row__p-name" onClick={props.onClick} >
+          {props.restaurant.name}
+        </p>
+        <p className="Row__p">{props.restaurant.telephone}</p>
       </div>
       <div className="Row__div">
         <p className="Row__p-city">{props.restaurant.city}</p>

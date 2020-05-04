@@ -24,13 +24,8 @@ const SearchForm = props => {
   const genreOptions = CreateOptions('genre', props.genreArr);
   const stateOptions = CreateOptions('state');
 
-  const submit = e => {
-    props.query(genreInput, stateInput, textInput);
-    e.preventDefault();
-  };
-
   return (
-    <form className="SearchForm" onSubmit={submit}>
+    <form className="SearchForm">
       <div className="SearchForm__div-input">
         <UserInput
           className="SearchForm__input"
@@ -44,7 +39,7 @@ const SearchForm = props => {
           imgAlt="Magnifying glass"
           imgClassName="SearchForm__img"
           imgSrc={image}
-          type="submit" />
+          type="button" />
       </div>
       <div className="SearchForm__div-select">
         <UserInput
