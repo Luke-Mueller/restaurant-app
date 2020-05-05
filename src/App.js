@@ -34,7 +34,9 @@ const App = () => {
         setAttireArr(attires.sort());
         setRestaurantArr(res);
         query(['', '', '', ''], res);
-        setLoaded(true);
+        setTimeout(() => {
+          setLoaded(true);
+        }, 1000)
       })
       .catch(err => console.log(err));
     // eslint-disable-next-line
