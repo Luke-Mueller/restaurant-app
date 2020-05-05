@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
-import { API_KEY } from '../../utils/globalVars';
+import GOOGLE_KEY from '../../utils/googleKey';
 
 const GoogleMap = props => {
   const center = { lat: props.lat, lng: props.lng };
@@ -18,7 +18,7 @@ const GoogleMap = props => {
   return (
     <div style={{ height: '10rem', width: '15rem' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: API_KEY }}
+        bootstrapURLKeys={{ key: GOOGLE_KEY }}
         center={center} 
         defaultCenter={{ lat: 0, lng: 0 }}
         defaultZoom={zoom}
