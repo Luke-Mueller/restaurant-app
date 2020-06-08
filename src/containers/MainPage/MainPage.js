@@ -72,6 +72,7 @@ const MainPage = props => {
         <Details
           className={dClassName}
           details={details}
+          restaurantArr={props.restaurantArr}
           setShowDetails={setShowDetails} />
       </Backdrop>
     </div>
